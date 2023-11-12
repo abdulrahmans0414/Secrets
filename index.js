@@ -6,12 +6,14 @@ import express from "express";
 import bodyParser from "body-parser";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import { config } from "dotenv";
+config();
 
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-const port = 3000;
+
 
 var userIsAuthorised = false;
 
@@ -46,5 +48,5 @@ app.post("/check", (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+    console.log(`Server is running on port ${process.env.PORT}`);
 });
