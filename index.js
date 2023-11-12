@@ -16,9 +16,14 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-
+// fetch data from server
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
+});
+
+// sent to server
+app.post("/check", (req, res) => {
+
 });
 
 app.listen(port, () => {
