@@ -47,6 +47,6 @@ app.post("/check", (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 });
