@@ -13,7 +13,20 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
+var userIsAuthorised = false;
+
+// Apply the middleware 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+ // Middleware to check the password
+function passwordCheck(req, res, next) {
+    const password = req.body["password"];
+    if (password === "ILoveCoding") {
+        userIsAuthorised = true;
+    }
+    next();
+}
+app.use(passwordCheck);
 
 
 // fetch data from server
@@ -23,9 +36,15 @@ app.get("/", (req, res) => {
 
 // sent to server
 app.post("/check", (req, res) => {
-
+    if (userIsAuthorised) {
+        res.sendFile(__dirname + "/public/secret.html");
+    } else {
+        res.sendFile(__dirname + "/public/index.html");
+        //Alternatively res.redirect("/");
+    }
 });
 
+// Start the server
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
