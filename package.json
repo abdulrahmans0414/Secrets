@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "\"It is a secrets content if we put correct password then secrets content show\"",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/abdulrahmans0414/SecretsContent/issues"
   },
-  "homepage": "https://github.com/abdulrahmans0414/SecretsContent#readme"
+  "homepage": "https://github.com/abdulrahmans0414/SecretsContent#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
